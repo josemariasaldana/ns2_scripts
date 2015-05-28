@@ -40,19 +40,15 @@
  ----------------------------------------------------------------------------------------------------------------------------
  The script uses this network scheme:
 
-   node0 o-------o node8                 o node1		- a "number_of_wow_connections_0_1_" of WoW are set from node0 (client) to node1 (server)
+   node0 o-------o node8                 o node1	
                   \                     /
             node9  \ node4      node5  / 
-   node6 o-----o----o-----------------o-----o node7	- a "number_of_wow_connections_6_7_" of WoW are set from node6 (client) to node7 (server)
+   node6 o-----o----o-----------------o-----o node7	
             node10/ |                 | \
-  node2  o------o  /                  |  o node3		- a "number_of_FTP_upload_" FTP background connections are set from node2 (origin) to node3 (destination)
-				   /				    \				- a "number_of_FTP_download_" FTP background connections are set from node3 (origin) to node2 (destination)
-  node12 o-------o						 o node13		- three UDP flows go from node2 to node3. The size of the packets of each flow can be defined
-				node11									- three UDP flows go from node3 to node2. The size of the packets of each flow can be defined
+  node2  o------o  /                  |  o node3		
+                  /                    \				
+  node12 o-------o                      o node13		
 
-														- a "number_of_FTP_upload_" FTP background connections are set from node12 (origin) to node13 (destination)
-														- a "number_of_FTP_download_" FTP background connections are set from node13 (origin) to node12 (destination)
+the link between node4 and node5 is the bottleneck
 
-   the link between node4 and node5 is the bottleneck
-
-	optionally, an additional multiplexing delay is added from node8 to node4, from node9 to node4, from node10 to node4 and from node11 to node4
+optionally, an additional multiplexing delay is added from node8 to node4, from node9 to node4, from node10 to node4 and from node11 to node4
