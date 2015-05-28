@@ -40,6 +40,7 @@
  ----------------------------------------------------------------------------------------------------------------------------
  The script uses this network scheme:
 
+```
    node0 o-------o node8                 o node1	
                   \                     /
             node9  \ node4      node5  / 
@@ -48,6 +49,7 @@
   node2  o------o  /                  |  o node3		
                   /                    \				
   node12 o-------o                      o node13		
+```
 
 the link between node4 and node5 is the bottleneck
 
