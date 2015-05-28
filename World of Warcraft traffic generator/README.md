@@ -1,44 +1,42 @@
- This NS2 script generates these traffics:
+This NS2 script generates these traffics:
  - World of Warcraft traffic, from client to server and vice versa
  - FTP traffic
  - cbr traffic
 
- It has been developed by Jose Saldana+ and Mirko Suznjevic*
- + EINA, University of Zaragoza, Spain
- * FER, University of Zagreb, Croatia
+It has been developed by Jose Saldana, EINA, University of Zaragoza, Spain, and Mirko Suznjevic FER, University of Zagreb, Croatia.
 
- This script can be freely used for Research and Academic purposes
+This script can be freely used for Research and Academic purposes.
 
- If you use this script, please cite the next open-source paper:
+If you use this script, please cite the next open-source paper:
 
- Mirko Suznjevic, Jose Saldana, Maja Matijasevic, Julián Fernández-Navajas, and José Ruiz-Mas, 
+Mirko Suznjevic, Jose Saldana, Maja Matijasevic, Julián Fernández-Navajas, and José Ruiz-Mas, 
  “Analyzing the Effect of TCP and Server Population on Massively Multiplayer Games,” 
  International Journal of Computer Games Technology, vol. 2014, Article ID 602403, 17 pages, 2014. doi:10.1155/2014/602403
  http://dx.doi.org/10.1155/2014/602403
 
 
- The Word of Warcraft player behaviour is modeled as exchanging between six different activities: dungeons, pvp, questing, raiding, trading, uncategorized
+The main script, which uses the rest of the files is **wow_test_mux.tcl".
 
- The script includes statistical models for
+The Word of Warcraft player behaviour is modeled as exchanging between six different activities: dungeons, pvp, questing, raiding, trading, uncategorized.
 
- - First activity of the player
+The script includes statistical models for:
 
- - Duration of each activity
-		- If the activity is "raiding", then the duration depends on the hour of the day
+- First activity of the player
 
- - Probability of exchange from one activity to other, depending on the hour of the day
+- Duration of each activity (If the activity is "raiding", then the duration depends on the hour of the day)
 
- - IAT (Inter Arrival Time) and APDU (Application Payload Data Unit), for client-to-server and server-to-client traffic, depending on the activity
+- Probability of exchange from one activity to other, depending on the hour of the day
 
- - The APDU of Trading depends on the number of players in the server: numplayers_($connection_id_)
+- IAT (Inter Arrival Time) and APDU (Application Payload Data Unit), for client-to-server and server-to-client traffic, depending on the activity
 
- - The APDU and IAT of PvP depend on the subactivity
+- The APDU of Trading depends on the number of players in the server: numplayers_($connection_id_)
 
- The script also simulates the hour of the day advance. Every 3600 seconds, the hour increases and the parameters which control the 
- activity exachange are modified
+- The APDU and IAT of PvP depend on the subactivity
 
- ----------------------------------------------------------------------------------------------------------------------------
- The script uses this network scheme:
+The script also simulates the hour of the day advance. Every 3600 seconds, the hour increases and the parameters which control the 
+activity exachange are modified
+
+The script creates this network scheme:
 
 ```
    node0 o-------o node8                 o node1	
@@ -51,6 +49,22 @@
   node12 o-------o                      o node13		
 ```
 
-the link between node4 and node5 is the bottleneck
+- a "number_of_wow_connections_0_1_" of WoW are set from node0 (client) to node1 (server)
 
-optionally, an additional multiplexing delay is added from node8 to node4, from node9 to node4, from node10 to node4 and from node11 to node4
+- a "number_of_wow_connections_6_7_" of WoW are set from node6 (client) to node7 (server)
+
+- a "number_of_FTP_upload_" FTP background connections are set from node2 (origin) to node3 (destination)
+
+- a "number_of_FTP_download_" FTP background connections are set from node3 (origin) to node2 (destination)
+
+- three UDP flows go from node2 to node3. The size of the packets of each flow can be defined
+
+- three UDP flows go from node3 to node2. The size of the packets of each flow can be defined
+
+- a "number_of_FTP_upload_" FTP background connections are set from node12 (origin) to node13 (destination)
+
+- a "number_of_FTP_download_" FTP background connections are set from node13 (origin) to node12 (destination)
+
+- the link between node4 and node5 is the bottleneck
+
+- optionally, an additional multiplexing delay is added from node8 to node4, from node9 to node4, from node10 to node4 and from node11 to node4
