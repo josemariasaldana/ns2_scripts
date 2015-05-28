@@ -15,7 +15,7 @@ Mirko Suznjevic, Jose Saldana, Maja Matijasevic, Julián Fernández-Navajas, and J
  http://dx.doi.org/10.1155/2014/602403
 
 
-The main script, which uses the rest of the files is **wow_test_mux.tcl".
+The main script, which uses the rest of the files is **wow_test_mux.tcl**.
 
 The Word of Warcraft player behaviour is modeled as exchanging between six different activities: dungeons, pvp, questing, raiding, trading, uncategorized.
 
