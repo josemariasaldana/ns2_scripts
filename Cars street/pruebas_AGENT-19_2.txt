@@ -1,0 +1,10 @@
+ns cars_street_v26.tcl AGENT-19.100.1 C 1 1 manual 300
+ns cars_street_v26.tcl AGENT-19.100.2 C 1 1 manual 300
+ns cars_street_v26.tcl AGENT-19.100.3 C 1 1 manual 300
+ns cars_street_v26.tcl AGENT-19.100.4 C 1 1 manual 300
+ns cars_street_v26.tcl AGENT-19.100.5 C 1 1 manual 300
+ns cars_street_v26.tcl AGENT-19.100.6 C 1 1 manual 300
+ns cars_street_v26.tcl AGENT-19.100.7 C 1 1 manual 300
+ns cars_street_v26.tcl AGENT-19.100.8 C 1 1 manual 300
+ns cars_street_v26.tcl AGENT-19.100.9 C 1 1 manual 300
+ns cars_street_v26.tcl AGENT-19.100.10 C 1 1 manual 300
